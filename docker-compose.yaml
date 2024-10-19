@@ -1,0 +1,14 @@
+services:
+  quiz-master-ai-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # Set the Poetry home and ensure local bin path is added to the PATH
+      POETRY_HOME: /opt/poetry
+      PATH: "$HOME/.local/bin:/opt/poetry/bin:$PATH"
+    volumes:
+      - .:/app
+    command: ["uvicorn", "app.main.main:app", "--host", "0.0.0.0", "--port", "8000"]
