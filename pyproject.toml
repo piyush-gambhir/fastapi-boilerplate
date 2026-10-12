@@ -15,7 +15,7 @@ packages = [
 python = "^3.14"
 torch = "^2.14.1"
 ollama = "^0.3.3"
-numpy = "<2.0.0"
+numpy = "^2.5.4"
 langchain = "^0.3.30"
 openai = "^1.109.1"
 langchain-community = "^0.3.21"
@@ -31,7 +31,7 @@ pydantic = "^2.14.1"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.4.2"
+pytest = "^9.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.8"]
