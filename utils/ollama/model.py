@@ -8,8 +8,10 @@ def show_model(model_name):
     return ollama.show(model_name)
 
 def create_model(custom_model_name, base_model_name, system_prompt):
-    modelfile = f"FROM {base_model_name}\nSYSTEM {system_prompt}"
-    return ollama.create(model=custom_model_name, modelfile=modelfile)
+    # ollama >= 0.4 replaced the `modelfile` string with structured fields
+    return ollama.create(
+        model=custom_model_name, from_=base_model_name, system=system_prompt
+    )
 
 def copy_model(source_model, destination_model):
     return ollama.copy(source_model, destination_model)
