@@ -32,8 +32,8 @@ jobs:
 
       - name: Syntax check
         run: |
-          python -m py_compile $(find app utils -name "*.py")
+          poetry run python -m compileall -q app utils
 
       - name: Run tests
         run: |
-          poetry run pytest -v || echo "No tests configured yet"
+          poetry run pytest -v
